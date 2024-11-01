@@ -1,24 +1,12 @@
-index.html<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="INDISLAY - Fashion and Style Redefined">
-    <meta name="keywords" content="INDISLAY, fashion, style, drip, clothing">
-    <title>INDISLAY - SLAYING EVERY DROP OF YOUR DRIP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Indislay - SLAYING EVERY DROP OF YOUR DRIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #ff8c00;
-            --secondary-color: #ff0080;
-            --text-color: #fff;
-            --bg-color: #000;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -26,207 +14,210 @@ index.html<!DOCTYPE html>
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow: hidden;
-            position: relative;
+            font-family: 'Roboto', sans-serif;
+            background: #000;
+            color: #fff;
             min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            z-index: -1;
-        }
-
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: twinkle 5s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
         }
 
         .container {
-            position: relative;
-            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            perspective: 1000px;
-        }
-
-        .logo-container {
-            margin-bottom: 40px;
-            transform-style: preserve-3d;
-            animation: logoFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) rotateX(0); }
-            50% { transform: translateY(-20px) rotateX(5deg); }
+            padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            font-size: clamp(3em, 8vw, 5em);
-            font-weight: 900;
-            letter-spacing: 8px;
+            font-size: 5em;
+            font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--text-color), var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
-            animation: glowText 3s ease-in-out infinite;
-        }
-
-        @keyframes glowText {
-            0%, 100% { filter: brightness(100%) blur(0px); }
-            50% { filter: brightness(150%) blur(2px); }
+            color: #fff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: titleReveal 1.5s ease-out;
         }
 
         h2 {
-            font-size: clamp(1em, 3vw, 1.5em);
-            font-weight: 300;
-            color: #888;
-            margin-bottom: 50px;
-            letter-spacing: 4px;
+            font-size: 1.8em;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #fff;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
         }
 
         .button {
             display: inline-block;
             padding: 20px 50px;
-            font-size: 1.2em;
-            color: var(--text-color);
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            font-size: 1.3em;
+            color: #000;
+            background: #fff;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 700;
-            letter-spacing: 2px;
+            transition: all 0.5s;
+            font-weight: bold;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
-            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
         }
 
         .button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+            background: #f0f0f0;
         }
 
-        .button::before {
+        .button::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-            transition: 0.5s;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%) rotate(45deg);
+            animation: buttonSweep 3s linear infinite;
         }
 
-        .button:hover::before {
-            left: 100%;
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            color: #555;
-            font-size: 0.9em;
-            z-index: 2;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .button {
-                padding: 15px 30px;
-                font-size: 1em;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
+        .grid-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease-out;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            animation: gridMove 15s linear infinite;
         }
 
-        .loading.fade-out {
-            opacity: 0;
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #444;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.08"/></svg>');
             pointer-events: none;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        @keyframes titleReveal {
+            0% { 
+                opacity: 0;
+                transform: translateY(-50px);
+                filter: blur(10px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes buttonSweep {
+            0% { transform: translate(-50%, -50%) rotate(45deg) translateX(-100%); }
+            100% { transform: translate(-50%, -50%) rotate(45deg) translateX(100%); }
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(50px); }
+        }
+
+        .spotlight {
+            position: fixed;
+            width: 100vh;
+            height: 100vh;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            animation: spotlightMove 10s ease-in-out infinite;
+        }
+
+        @keyframes spotlightMove {
+            0%, 100% { transform: translate(-25%, -25%) scale(1); }
+            50% { transform: translate(25%, 25%) scale(1.2); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 1.4em; }
+            .button { padding: 15px 40px; font-size: 1.1em; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <h1>INDISLAY</h1>
-    </div>
+    <div class="grid-background"></div>
+    <div class="noise"></div>
+    <div class="spotlight"></div>
 
-    <div class="background"></div>
-    <div class="stars" id="stars"></div>
-
-    <div class="container">
-        <div class="logo-container">
-            <h1>INDISLAY</h1>
-            <h2>Slaying Every Drop of Your Drip</h2>
+    <section class="hero">
+        <div class="container">
+            <h1 data-aos="fade-down">Indislay</h1>
+            <h2 data-aos="fade-up">SLAYING EVERY DROP OF YOUR DRIP</h2>
+            <a href="https://indislay-jqlh5p4.gamma.sit/" class="button" data-aos="zoom-in">CLICK HERE</a>
         </div>
-        
-        <a href="https://indislay-jqlh5p4.gamma.site/" class="button" id="exploreButton">EXPLORE NOW</a>
-    </div>
+    </section>
 
     <footer class="footer">
-        &copy; <script>document.write(new Date().getFullYear())</script> Indislay. All Rights Reserved.
+        &copy; 2024 Indislay. All Rights Reserved.
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Loading screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('fade-out');
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Dynamic spotlight effect
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.querySelector('.spotlight');
+            if (spotlight) {
+                const x = e.clientX - spotlight.offsetWidth / 2;
+                const y = e.clientY - spotlight.offsetHeight / 2;
+                spotlight.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
+
